@@ -1,0 +1,17 @@
+admin
+access-log-valve
+datasources
+deployment-scanner
+elytron
+extensions
+filters
+jgroups
+json-logging
+logger-category
+messaging
+mp-config
+os.node-name
+port-offset
+resource-adapters
+statefulset
+tracing
