@@ -40,8 +40,11 @@
     </licenses>
     
     <properties>
+        <version.junit>4.13.2</version.junit>
         <version.org.wildfly>25.0.0.Final</version.org.wildfly>
+        <version.org.wildfly.core>17.0.1.Final</version.org.wildfly.core>
         <version.org.wildfly.galleon-plugins>5.2.4.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.maven.plugin>3.0.0.Alpha1-SNAPSHOT</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
@@ -75,12 +78,33 @@
                 <artifactId>wildfly-config-gen</artifactId>
                 <version>${version.org.wildfly.galleon-plugins}</version>
             </dependency>
+            <!-- tests -->
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-core-test-runner</artifactId>
+                <version>${version.org.wildfly.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-controller-client</artifactId>
+                <version>${version.org.wildfly.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.wildfly.plugins</groupId>
+                    <artifactId>wildfly-maven-plugin</artifactId>
+                    <version>${version.org.wildfly.maven.plugin}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.wildfly.galleon-plugins</groupId>
                     <artifactId>wildfly-galleon-maven-plugin</artifactId>
@@ -92,6 +116,7 @@
 
     <modules>
         <module>common</module>
+        <module>testsuite</module>
         <module>wildfly-cloud-galleon-pack</module>
         <module>wildfly-preview-cloud-galleon-pack</module>
     </modules>
