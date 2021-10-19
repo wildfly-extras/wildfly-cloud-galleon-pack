@@ -23,7 +23,7 @@
         <artifactId>jboss-parent</artifactId>
         <version>37</version>
     </parent>
-    <groupId>org.wildfly</groupId>
+    <groupId>org.wildfly.cloud</groupId>
     <artifactId>wildfly-cloud-galleon-pack-parent</artifactId>
     <version>1.0.0.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -44,7 +44,7 @@
         <version.org.wildfly>25.0.0.Final</version.org.wildfly>
         <version.org.wildfly.core>17.0.1.Final</version.org.wildfly.core>
         <version.org.wildfly.galleon-plugins>5.2.4.Final</version.org.wildfly.galleon-plugins>
-        <version.org.wildfly.maven.plugin>3.0.0.Alpha1-SNAPSHOT</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.maven.plugin>3.0.0.Alpha1</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
