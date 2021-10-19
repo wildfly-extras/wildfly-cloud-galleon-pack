@@ -32,7 +32,7 @@
     <dependencies>
          <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>galleon-pack-common</artifactId>
+            <artifactId>wildfly-cloud-galleon-pack-common</artifactId>
             <type>pom</type>
         </dependency>
         <dependency>
