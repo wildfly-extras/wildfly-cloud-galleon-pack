@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mail">
+    <!-- SMTP socket -->
+    <feature spec="socket-binding-group">
+        <param name="socket-binding-group" value="standard-sockets" />
+        <feature spec="socket-binding-group.remote-destination-outbound-socket-binding">
+            <param name="remote-destination-outbound-socket-binding" value="mail-smtp"/>
+            <param name="host" value="${env.OPENSHIFT_SMTP_HOST:localhost}"/>
+        </feature>
+    </feature>
+</layer-spec>
+

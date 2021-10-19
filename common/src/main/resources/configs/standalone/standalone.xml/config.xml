@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+
+<config xmlns="urn:jboss:galleon:config:1.0" name="standalone.xml" model="standalone">
+    <layers>
+        <include name="batch-jberet"/>
+        <include name="cloud-server"/>
+        <include name="ejb"/>
+        <include name="ejb-dist-cache"/>
+        <include name="ejb-http-invoker"/>
+        <exclude name="ejb-local-cache"/>
+        <include name="elytron-oidc-client"/>
+        <include name="h2-driver"/>
+        <include name="health"/>
+        <exclude name="jpa"/>
+        <include name="jpa-distributed"/>
+        <include name="jdr"/>
+        <include name="jsf"/>
+        <include name="mail"/>
+        <include name="metrics"/>
+        <include name="microprofile-jwt"/>
+        <exclude name="observability"/>
+        <include name="pojo"/>
+        <include name="remoting"/>
+        <include name="sar"/>
+        <include name="webservices"/>
+    </layers>
+    <!-- default config is not fully defined with Galleon layers, must provision all modules -->
+    <packages>
+        <package name="modules.all"/>
+    </packages>
+    <exclude spec="subsystem.microprofile-opentracing-smallrye"/>
+
+    <!-- The layer secures it with elytron -->
+    <feature spec="subsystem.batch-jberet">
+        <unset param="security-domain"/>
+    </feature>
+
+    <!-- add the default config content -->
+    <feature-group name="undertow-default-config"/>
+    
+    <!-- remove what is added by layer -->
+    <feature spec="subsystem.remoting">
+        <feature spec="subsystem.remoting.configuration.endpoint">
+            <unset param="worker"/>
+        </feature>
+    </feature>
+
+    <exclude feature-id="subsystem.datasources.data-source:data-source=ExampleDS"/>
+    <feature spec="subsystem.datasources.data-source">
+        <param name="data-source" value="ExampleDS"/>
+        <param name="enabled" value="true"/>
+        <param name="use-java-context" value="true"/>
+        <param name="jndi-name" value="java:jboss/datasources/${env.EXAMPLE_DATASOURCE,env.OPENSHIFT_EXAMPLE_DATASOURCE:ExampleDS}"/>
+        <param name="connection-url" value="&quot;jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE&quot;"/>
+        <param name="driver-name" value="h2"/>
+        <param name="user-name" value="sa"/>
+        <param name="password" value="sa"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+    </feature>
+    
+    
+    <!-- ee subsystem -->
+    <feature spec="subsystem.ee.service.default-bindings">
+        <param name="datasource" value="java:jboss/datasources/${env.DEFAULT_DATASOURCE,\
+env.OPENSHIFT_DEFAULT_DATASOURCE,env.EXAMPLE_DATASOURCE,env.OPENSHIFT_EXAMPLE_DATASOURCE:ExampleDS}"/>
+    </feature>
+    <feature spec="subsystem.ee">
+        <param name="spec-descriptor-property-replacement" value="true"/>
+    </feature>
+    
+    <!-- clustering, adds singleton and ha sockets -->
+    <exclude spec="subsystem.infinispan"/>
+    <exclude spec="subsystem.distributable-web"/>
+    <feature-group name="os-clustering"/>
+
+</config>
