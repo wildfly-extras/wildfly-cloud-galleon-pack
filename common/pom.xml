@@ -23,7 +23,7 @@
         <artifactId>wildfly-cloud-galleon-pack-parent</artifactId>
         <version>1.0.0.Final-SNAPSHOT</version>
     </parent>
-    <artifactId>galleon-pack-common</artifactId>
+    <artifactId>wildfly-cloud-galleon-pack-common</artifactId>
     <packaging>pom</packaging>
     <name>Galleon feature-pack for Cloud common</name>
   
