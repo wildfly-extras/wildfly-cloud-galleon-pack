@@ -10,7 +10,7 @@ json-logging
 logger-category
 messaging
 mp-config
-os.node-name
+os/node-name
 port-offset
 resource-adapters
 statefulset
