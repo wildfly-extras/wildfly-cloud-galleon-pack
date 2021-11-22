@@ -44,7 +44,7 @@
         <version.org.wildfly>25.0.1.Final</version.org.wildfly>
         <version.org.wildfly.core>17.0.3.Final</version.org.wildfly.core>
         <version.org.wildfly.galleon-plugins>5.2.6.Final</version.org.wildfly.galleon-plugins>
-        <version.org.wildfly.maven.plugin>3.0.0.Alpha1</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.maven.plugin>3.0.0.Alpha2</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
