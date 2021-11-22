@@ -33,7 +33,7 @@
         <cct.module.fork>jboss-openshift</cct.module.fork>
         <cct.module.tag>0.45.1</cct.module.tag>
         <wildfly.cekit.modules.fork>wildfly</wildfly.cekit.modules.fork>
-        <wildfly.cekit.modules.tag>wildfly-cloud-1.0.0.Alpha2</wildfly.cekit.modules.tag>
+        <wildfly.cekit.modules.tag>wildfly-cloud-1.0.0.Alpha3</wildfly.cekit.modules.tag>
     </properties>
     <build>                
         <plugins>
