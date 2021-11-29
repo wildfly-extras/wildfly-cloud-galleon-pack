@@ -7,9 +7,11 @@ extensions
 filters
 jgroups
 json-logging
+keycloak/2.0
 logger-category
 messaging
 mp-config
+oidc
 os/node-name
 port-offset
 resource-adapters
