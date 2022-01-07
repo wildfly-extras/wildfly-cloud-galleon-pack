@@ -28,6 +28,12 @@
     <packages>
         <package name="modules.all"/>
     </packages>
+    
+    <exclude spec="subsystem.core-management"/>
+    
+    <!-- disable the web-console -->
+    <feature-group name="os-management"/>
+
     <exclude spec="subsystem.microprofile-opentracing-smallrye"/>
 
     <!-- The layer secures it with elytron -->
@@ -72,5 +78,9 @@ env.OPENSHIFT_DEFAULT_DATASOURCE,env.EXAMPLE_DATASOURCE,env.OPENSHIFT_EXAMPLE_DA
     <exclude spec="subsystem.infinispan"/>
     <exclude spec="subsystem.distributable-web"/>
     <feature-group name="os-clustering"/>
+
+    <!-- undertow -->
+    <exclude feature-id="subsystem.undertow.server.https-listener:server=default-server,https-listener=https"/>
+    <feature-group name="os-undertow"/>
 
 </config>
