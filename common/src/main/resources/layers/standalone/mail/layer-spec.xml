@@ -5,7 +5,7 @@
         <param name="socket-binding-group" value="standard-sockets" />
         <feature spec="socket-binding-group.remote-destination-outbound-socket-binding">
             <param name="remote-destination-outbound-socket-binding" value="mail-smtp"/>
-            <param name="host" value="${env.OPENSHIFT_SMTP_HOST:localhost}"/>
+            <param name="host" value="${env.OPENSHIFT_SMTP_HOST,jboss.mail.server.host:localhost}"/>
         </feature>
     </feature>
 </layer-spec>
