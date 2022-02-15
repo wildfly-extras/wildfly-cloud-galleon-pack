@@ -9,7 +9,7 @@ jgroups
 json-logging
 keycloak/2.0
 logger-category
-messaging
+messaging/2.0
 mp-config
 oidc
 os/node-name
