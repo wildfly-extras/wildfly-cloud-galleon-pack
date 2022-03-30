@@ -31,11 +31,6 @@
         <layer name="web-clustering"/>
     </dependencies>
     
-    <!-- The layer secures it with elytron -->
-    <feature spec="subsystem.batch-jberet">
-        <unset param="security-domain"/>
-    </feature>
-    
     <!-- remove what is added by layer -->
     <feature spec="subsystem.remoting">
         <feature spec="subsystem.remoting.configuration.endpoint">
