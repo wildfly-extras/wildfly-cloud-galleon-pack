@@ -6,7 +6,7 @@ the server configuration. These bash scripts are controlled by a set of environm
 When running a WildFly server inside the WildFly S2i runtime and builder images, you can use this [these environment variables](https://github.com/jboss-container-images/openjdk/blob/develop/modules/jvm/api/module.yaml) to configure the Java VM.
 These environment variables are not provided by the WildFly cloud feature-pack. They can be used with a vanilla WildFly server installed in the image.
 
-WildFly S2i runtime and builder images are exposing a set of [environment variables](https://github.com/wildfly/wildfly-cekit-modules/blob/v2/jboss/container/wildfly/run/api/module.yaml) to fine tune the server execution.
+WildFly S2i runtime and builder images are exposing a set of [environment variables](https://github.com/wildfly/wildfly-cekit-modules/blob/master/jboss/container/wildfly/run/api/module.yaml) to fine tune the server execution.
 
 # Datasources
 

@@ -30,19 +30,19 @@ For example:
 </feature-packs>
 ```
 
-For a complete plugin configuration see this [example](https://github.com/wildfly/wildfly-s2i/blob/v2/test/test-app/pom.xml).
+For a complete plugin configuration see this [example](https://github.com/wildfly/wildfly-s2i/blob/master/test/test-app/pom.xml).
 
 # Building a WildFly Image
 
 ## Building an application image from a local execution of the WildFly Maven plugin
 
-Once the Maven plugin has been configured (see a complete [example](https://github.com/wildfly/wildfly-s2i/blob/v2/test/test-app/pom.xml)), 
+Once the Maven plugin has been configured (see a complete [example](https://github.com/wildfly/wildfly-s2i/blob/master/test/test-app/pom.xml)), 
 calling ``mvn clean package`` will output a WildFly server containing your deployment in ``<project>/target/server`` directory.
  
 This server has then to be installed into the WildFly runtime image ([JDK11](https://quay.io/repository/jfdenise/wildfly-runtime-jdk11) or 
 [JDK 17](https://quay.io/repository/jfdenise/wildfly-runtime-jdk17)). 
 
-Use [this dockerfile example](examples/Dockerfile) 
+Use [this dockerfile example](https://github.com/wildfly/wildfly-s2i/blob/master/examples/docker-build/Dockerfile) 
 to build an application image using docker.
 
 With JDK11 runtime image:
@@ -64,7 +64,7 @@ Using [WildFly Helm charts](https://github.com/wildfly/wildfly-charts) is the si
 [JDK11](https://quay.io/repository/jfdenise/wildfly-s2i-jdk11) or [JDK17](https://quay.io/repository/jfdenise/wildfly-s2i-jdk17) 
 WildFly S2I Builder images can be configured in your helm chart to build and deploy an application image.
 
-[These examples](https://github.com/wildfly/wildfly-s2i/tree/v2/examples) will guide you step by step in order to deploy your application image in the cloud.
+[These examples](https://github.com/wildfly/wildfly-s2i/tree/master/examples) will guide you step by step in order to deploy your application image in the cloud.
 
 # Specifics of the wildfly-cloud-galleon-pack
 
