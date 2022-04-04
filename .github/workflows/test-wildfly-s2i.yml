@@ -1,4 +1,4 @@
-name: Wildfly Cloud Galleon feature-pack - Test WildFly s2i V2 image on the changes introduced in the PR. 
+name: Wildfly Cloud Galleon feature-pack - Test WildFly s2i image on the changes introduced in the PR. 
 on:
   pull_request:
      branches: [ main ]
@@ -33,7 +33,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
             repository: wildfly/wildfly-s2i
-            ref: v2
             path: wildfly-s2i
       - uses: n1hility/cancel-previous-runs@v2
         with:
