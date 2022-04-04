@@ -25,7 +25,7 @@
     </parent>
     <groupId>org.wildfly.cloud</groupId>
     <artifactId>wildfly-cloud-galleon-pack-parent</artifactId>
-    <version>1.0.0.Beta4-SNAPSHOT</version>
+    <version>1.0.0.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WildFly Galleon feature-pack for Cloud parent</name>
   
@@ -41,10 +41,10 @@
     
     <properties>
         <version.junit>4.13.2</version.junit>
-        <version.org.wildfly>26.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.core>18.0.0.Final</version.org.wildfly.core>
+        <version.org.wildfly>26.1.0.Beta1</version.org.wildfly>
+        <version.org.wildfly.core>18.1.0.Final</version.org.wildfly.core>
         <version.org.wildfly.galleon-plugins>5.2.9.Final</version.org.wildfly.galleon-plugins>
-        <version.org.wildfly.maven.plugin>3.0.0.Alpha3</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.maven.plugin>3.0.0.Beta1</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
