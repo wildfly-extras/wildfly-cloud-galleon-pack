@@ -49,7 +49,7 @@ jobs:
           cp wildfly-preview-cloud-galleon-pack/target/wildfly-preview-cloud-galleon-pack-$cloudVersion.zip custom-cloud-image/docker/repository/org/wildfly/cloud/wildfly-preview-cloud-galleon-pack/$cloudVersion
           docker_file=custom-cloud-image/docker/Dockerfile
             cat <<EOF > $docker_file
-             FROM quay.io/jfdenise/wildfly-s2i-jdk11:latest
+             FROM quay.io/wildfly-snapshots/wildfly-s2i-jdk11:latest
              RUN mkdir -p /tmp/artifacts/m2
              COPY --chown=jboss:root repository /tmp/artifacts/m2
           EOF
