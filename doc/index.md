@@ -39,8 +39,8 @@ For a complete plugin configuration see this [example](https://github.com/wildfl
 Once the Maven plugin has been configured (see a complete [example](https://github.com/wildfly/wildfly-s2i/blob/main/test/test-app/pom.xml)), 
 calling ``mvn clean package`` will output a WildFly server containing your deployment in ``<project>/target/server`` directory.
  
-This server has then to be installed into the WildFly runtime image ([JDK11](https://quay.io/repository/jfdenise/wildfly-runtime-jdk11) or 
-[JDK 17](https://quay.io/repository/jfdenise/wildfly-runtime-jdk17)). 
+This server has then to be installed into the WildFly runtime image ([JDK11](https://quay.io/repository/wildfly-snapshots/wildfly-runtime-jdk11) or 
+[JDK 17](https://quay.io/repository/wildfly-snapshots/wildfly-runtime-jdk17)). 
 
 Use [this dockerfile example](https://github.com/wildfly/wildfly-s2i/blob/main/examples/docker-build/Dockerfile) 
 to build an application image using docker.
@@ -54,14 +54,14 @@ docker build -t my-application-jdk11:latest .
 With JDK17 runtime image:
 
 ```
-docker build --build-arg runtime_image="quay.io/jfdenise/wildfly-runtime-jdk17:latest" -t my-application-jdk17:latest .
+docker build --build-arg runtime_image="quay.io/wildfly-snapshots/wildfly-runtime-jdk17:latest" -t my-application-jdk17:latest .
 ```
 
 ## Building an image in the cluster thanks to the WildFly S2I Builder image and Helm charts
 
 Using [WildFly Helm charts](https://github.com/wildfly/wildfly-charts) is the simplest way to initiate the build of your application image in the cloud. 
 
-[JDK11](https://quay.io/repository/jfdenise/wildfly-s2i-jdk11) or [JDK17](https://quay.io/repository/jfdenise/wildfly-s2i-jdk17) 
+[JDK11](https://quay.io/repository/wildfly-snapshots/wildfly-s2i-jdk11) or [JDK17](https://quay.io/repository/wildfly-snapshots/wildfly-s2i-jdk17) 
 WildFly S2I Builder images can be configured in your helm chart to build and deploy an application image.
 
 [These examples](https://github.com/wildfly/wildfly-s2i/tree/main/examples) will guide you step by step in order to deploy your application image in the cloud.
