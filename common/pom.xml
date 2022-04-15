@@ -29,12 +29,6 @@
   
     <description>Galleon feature-pack for Cloud common.</description>
 
-    <properties>
-        <cct.module.fork>jboss-openshift</cct.module.fork>
-        <cct.module.tag>0.45.1</cct.module.tag>
-        <wildfly.cekit.modules.fork>wildfly</wildfly.cekit.modules.fork>
-        <wildfly.cekit.modules.tag>main</wildfly.cekit.modules.tag>
-    </properties>
     <build>                
         <plugins>
             <plugin>
@@ -45,10 +39,6 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <tasks>
-                                <exec executable="./install-cct-module.sh" failonerror="true">
-                                    <env key="CCT_MODULES_TAG" value="${cct.module.tag}"/>
-                                    <env key="CCT_MODULES_FORK" value="${cct.module.fork}"/>
-                                </exec>
                                 <exec executable="./install-cekit-modules.sh" failonerror="true">
                                     <env key="WILDFLY_CEKIT_TAG" value="${wildfly.cekit.modules.tag}"/>
                                     <env key="WILDFLY_CEKIT_FORK" value="${wildfly.cekit.modules.fork}"/>
