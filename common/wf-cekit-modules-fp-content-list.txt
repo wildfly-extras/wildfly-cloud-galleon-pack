@@ -1,6 +1,5 @@
 config
 finalize-script
-java
 launch-common
 launch-openshift
 layers/base
