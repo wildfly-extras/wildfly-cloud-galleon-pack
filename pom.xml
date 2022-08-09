@@ -25,7 +25,7 @@
     </parent>
     <groupId>org.wildfly.cloud</groupId>
     <artifactId>wildfly-cloud-galleon-pack-parent</artifactId>
-    <version>2.0.0.Alpha4</version>
+    <version>2.0.0.Alpha5-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WildFly Galleon feature-pack for Cloud parent</name>
   
@@ -42,7 +42,7 @@
     <properties>
         <version.junit>4.13.2</version.junit>
         <wildfly.cekit.modules.fork>wildfly</wildfly.cekit.modules.fork>
-        <wildfly.cekit.modules.tag>0.27.8</wildfly.cekit.modules.tag>
+        <wildfly.cekit.modules.tag>main</wildfly.cekit.modules.tag>
         <version.org.wildfly>27.0.0.Alpha4</version.org.wildfly>
         <version.org.wildfly.core>19.0.0.Beta15</version.org.wildfly.core>
         <version.org.wildfly.galleon-plugins>6.0.0.Alpha7</version.org.wildfly.galleon-plugins>
