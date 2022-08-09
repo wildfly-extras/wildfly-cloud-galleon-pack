@@ -16,6 +16,10 @@ The socket binding port offset can only be configured using the ``PORT_OFFSET`` 
 
 jgroups `ee` channel uses the `tcp` stack instead of `udp`. `PING` and `MPING` protocols are removed.
 
+## embedded-activemq
+
+Connection factory `RemoteConnectionFactory` has the attribute `reconnect-attempts` set to `-1` for infinite retry.
+
 ## jpa
 
 The hibernate cache-container default cache is `local-query`.
