@@ -4,7 +4,7 @@ on:
      branches: [ main ]
 env:
   LANG: en_US.UTF-8
-  S2I_URI: https://api.github.com/repos/openshift/source-to-image/releases/latest
+  S2I_URI: https://github.com/openshift/source-to-image/releases/download/v1.3.1/source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz
 jobs:
   wfci:
     name: Wildfly-s2i Build and Test
@@ -49,7 +49,7 @@ jobs:
           cp wildfly-preview-cloud-galleon-pack/target/wildfly-preview-cloud-galleon-pack-$cloudVersion.zip custom-cloud-image/docker/repository/org/wildfly/cloud/wildfly-preview-cloud-galleon-pack/$cloudVersion
           docker_file=custom-cloud-image/docker/Dockerfile
             cat <<EOF > $docker_file
-             FROM quay.io/wildfly-snapshots/wildfly-s2i-jdk11:latest
+             FROM quay.io/wildfly/wildfly-s2i:latest
              RUN mkdir -p /tmp/artifacts/m2
              COPY --chown=jboss:root repository /tmp/artifacts/m2
           EOF
@@ -74,18 +74,14 @@ jobs:
         run: |
           echo ===== Installing s2i from ${{ env.S2I_URL }} =====
           mkdir /tmp/s2i/ && cd /tmp/s2i/
-          curl -s ${{ env.S2I_URI }} \
-           | grep browser_download_url \
-           | grep linux-amd64 \
-           | cut -d '"' -f 4 \
-           | wget -qi -
+          wget ${{ env.S2I_URI }} 
            tar xvf source-to-image*.gz
            sudo mv s2i /usr/bin
            which s2i
            s2i version
       - name: Test extended image containing custom WildFly cloud feature-pack
         run: |
-          docker build -t wildfly/wildfly-s2i-jdk11:dev-${{ env.CLOUD_FP_VERSION }} ./custom-cloud-image/docker
+          docker build -t wildfly/wildfly-s2i:dev-${{ env.CLOUD_FP_VERSION }} ./custom-cloud-image/docker
           cp -r ../wildfly-s2i/wildfly-builder-image ./custom-cloud-image
           cp -r ../wildfly-s2i/wildfly-modules ./custom-cloud-image
           comment="### PLACEHOLDER FOR CLOUD CUSTOM TESTING ###"
@@ -98,7 +94,7 @@ jobs:
           done
           . ~/cekit/bin/activate
           pushd custom-cloud-image/wildfly-builder-image
-            cekit test --image=wildfly/wildfly-s2i-jdk11:dev-${{ env.CLOUD_FP_VERSION }} behave
+            cekit test --image=wildfly/wildfly-s2i:dev-${{ env.CLOUD_FP_VERSION }} behave
           popd
         working-directory: wildfly-cloud
       - name: List containers
