@@ -3,10 +3,10 @@
 When a WildFly server provisioned with the cloud feature-pack is started, a set of bash scripts are executed in order to adjust 
 the server configuration. These bash scripts are controlled by a set of environment variables that this document describes.
 
-When running a WildFly server inside the WildFly S2i runtime and builder images, you can use this [these environment variables](https://github.com/jboss-container-images/openjdk/blob/develop/modules/jvm/api/module.yaml) to configure the Java VM.
+When running a WildFly server inside the WildFly S2I runtime and builder images, you can use this [these environment variables](https://github.com/jboss-container-images/openjdk/blob/develop/modules/jvm/api/module.yaml) to configure the Java VM.
 These environment variables are not provided by the WildFly cloud feature-pack. They can be used with a vanilla WildFly server installed in the image.
 
-WildFly S2i runtime and builder images are exposing a set of [environment variables](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/run/api/module.yaml) to fine tune the server execution.
+WildFly S2I runtime and builder images are exposing a set of [environment variables](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/run/api/module.yaml) to fine tune the server execution.
 
 # Datasources
 
@@ -24,21 +24,21 @@ Controls whether exploded deployment content should be automatically deployed.
 
 [Environment variables.](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/launch/deployment-scanner/module.yaml)
 
-# Eclipse Microprofile Config
+# Eclipse MicroProfile Config
 
-Add config maps as source of configuration to the Eclipse Microprofile subsystem.
-
-# Eclipse Microprofile OpenTracing
-
-Add/remove the Microprofile OpenTracing subsystem and extension.
-
-## Environment variables
-
-[Environment variables.](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/launch/tracing/module.yaml)
+Add config maps as source of configuration to the Eclipse MicroProfile subsystem.
 
 ## Environment variables
 
 [Environment variables.](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/launch/mp-config/module.yaml)
+
+# Eclipse MicroProfile OpenTracing
+
+Add/remove the MicroProfile OpenTracing subsystem and extension.
+
+## Environment variables
+
+[Environment variables.](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/launch/tracing/module.yaml)
 
 # Elytron
 
@@ -50,7 +50,7 @@ Configure elytron subsystem with new security domains and HTTPS configuration.
 
 # Elytron OIDC
 
-Secure deployments with the elytron-oidc-client subsystem. Supports the Keycloak server provider.
+Secure deployments with the `elytron-oidc-client` subsystem. Supports the Keycloak server provider.
 
 ## Environment variables
 
@@ -58,7 +58,7 @@ Secure deployments with the elytron-oidc-client subsystem. Supports the Keycloak
 
 # JGroups
 
-Configure jgroups node discovery.
+Configure JGroups node discovery.
 
 ## Environment variables
 
@@ -98,7 +98,7 @@ Configures the admin user used to access the management interface.
 
 # Resource Adapters
 
-Add resource adapters to the resource-adapters subsystem.
+Add resource adapters to the `resource-adapters` subsystem.
 
 ## Environment variables
 
@@ -128,7 +128,7 @@ Used to configure the socket binding client mapping for the EJB client.
 
 # Undertow access log
 
-Configures the undertow subsystem access-log valve and add the logger "org.infinispan.REST_ACCESS_LOG" to the logging subsystem.
+Configures the undertow subsystem access-log valve and add the logger `org.infinispan.REST_ACCESS_LOG` to the logging subsystem.
 
 ## Environment variables
 
@@ -136,7 +136,7 @@ Configures the undertow subsystem access-log valve and add the logger "org.infin
 
 # Undertow response filters
 
- Configures the response header filters in the undertow server's hosts. Applies to all hosts.
+Configures the response header filters in the undertow server's hosts. Applies to all hosts.
 
 ## Environment variables
 

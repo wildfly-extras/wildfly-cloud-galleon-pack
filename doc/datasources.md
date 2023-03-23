@@ -111,9 +111,9 @@ When adding drivers to WildFly server, you have 2 choices:
 * Package your drivers (even datasources) as galleon feature-pack as done in [wildfly-datasources-galleon-pack](https://github.com/wildfly-extras/wildfly-datasources-galleon-pack) 
 and include the Galleon feature-pack in your Galleon project.
 
-* Use s2i hooks we are offering that allow you to install driver JBOSS modules and update WildFly configuration.
+* Use S2I hooks we are offering that allow you to install driver JBOSS modules and update WildFly configuration.
 
-Drivers deployment and configuration using s2i hooks
+Drivers deployment and configuration using S2I hooks
 ----------------------------------------------------
 
 An example of such approach can be found in this [test project](../test/test-app-custom).
@@ -161,12 +161,12 @@ External datasource
 
 External datasources are datasources that are referencing drivers not present in the default configuration.
 You configure them by using the same `PREFIX_*` env variable defined for _Internal datasources_.
-In addition you use `PREFIX_DRIVER` env var to specify the driver name.
+In addition, you use `PREFIX_DRIVER` env var to specify the driver name.
 
 To specify external datasources, you can create one or more environment files. 
 These will be read on startup of the server. To configure the environment files, you can do something like:
 
-    `ENV_FILES=/etc/extensions/file1.env,/etc/extensions/file2.env`
+    ENV_FILES=/etc/extensions/file1.env,/etc/extensions/file2.env
 
 Then assuming that the image contains the env files in these locations, 
 it will use the prefixes in the `DATASOURCES` variable contained in the file to look for variables in the file with those prefixes. 
@@ -190,4 +190,4 @@ MYDB_NONXA=true
 MYDB_URL="jdbc:mydb://hostname:5432/demo"
 ```
 
-Note: By locating your env file in `<application src>/configuration` directory it will be automatically copied to $JBOSS_HOME/standalone/configuration directory.
+Note: By locating your env file in `<application src>/configuration` directory it will be automatically copied to `$JBOSS_HOME/standalone/configuration` directory.

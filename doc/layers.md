@@ -14,7 +14,7 @@ The socket binding port offset can only be configured using the ``PORT_OFFSET`` 
 
 ## ejb-dist-cache
 
-jgroups `ee` channel uses the `tcp` stack instead of `udp`. `PING` and `MPING` protocols are removed.
+The JGroups `ee` channel uses the `tcp` stack instead of `udp`, `PING` and `MPING` protocols are removed.
 
 ## embedded-activemq
 
@@ -22,12 +22,12 @@ Connection factory `RemoteConnectionFactory` has the attribute `reconnect-attemp
 
 ## jpa
 
-The hibernate cache-container default cache is `local-query`.
+The Hibernate cache-container default cache is `local-query`.
 
 ## jpa-distributed
 
-The hibernate cache-container default cache is `local-query`. 
-jgroups `ee` channel uses the `tcp` stack instead of `udp`. `PING` and `MPING` protocols are removed.
+The Hibernate cache-container default cache is `local-query`.
+The JGroups `ee` channel uses the `tcp` stack instead of `udp`, `PING` and `MPING` protocols are removed.
 
 ## logging
 
@@ -57,6 +57,6 @@ The default `http-listener` has `proxy-address-forwarding` set to true.
 
 ## web-clustering
 
-The jgroups `ee` channel uses the `tcp` stack instead of `udp`. `PING` and `MPING` protocols are removed.
-The infinispan `web` cache container default cache is a replicated cache (`repl` cache added by this layer).
+The JGroups `ee` channel uses the `tcp` stack instead of `udp`, `PING` and `MPING` protocols are removed.
+The Infinispan `web` cache container default cache is a replicated cache (`repl` cache added by this layer).
 
