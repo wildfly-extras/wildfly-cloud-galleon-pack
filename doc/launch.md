@@ -32,14 +32,6 @@ Add config maps as source of configuration to the Eclipse MicroProfile subsystem
 
 [Environment variables.](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/launch/mp-config/module.yaml)
 
-# Eclipse MicroProfile OpenTracing
-
-Add/remove the MicroProfile OpenTracing subsystem and extension.
-
-## Environment variables
-
-[Environment variables.](https://github.com/wildfly/wildfly-cekit-modules/blob/main/jboss/container/wildfly/launch/tracing/module.yaml)
-
 # Elytron
 
 Configure elytron subsystem with new security domains and HTTPS configuration.

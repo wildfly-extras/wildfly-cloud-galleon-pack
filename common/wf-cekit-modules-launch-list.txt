@@ -16,4 +16,3 @@ os/node-name
 port-offset
 resource-adapters
 statefulset
-tracing
