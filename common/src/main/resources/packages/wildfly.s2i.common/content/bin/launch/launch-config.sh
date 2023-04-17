@@ -23,7 +23,6 @@ CONFIG_SCRIPT_CANDIDATES=(
   $JBOSS_HOME/bin/launch/oidc.sh
   $JBOSS_HOME/bin/launch/ports.sh
   $JBOSS_HOME/bin/launch/resource-adapter.sh
-  $JBOSS_HOME/bin/launch/tracing.sh
   /opt/run-java/proxy-options
   $JBOSS_HOME/bin/launch/jboss_modules_system_pkgs.sh
   $JBOSS_HOME/bin/launch/statefulset.sh
