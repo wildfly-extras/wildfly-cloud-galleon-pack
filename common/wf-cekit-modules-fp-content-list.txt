@@ -4,3 +4,4 @@ launch-common
 launch-openshift
 layers/base
 layers/clustering
+layers/mp
