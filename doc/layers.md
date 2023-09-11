@@ -43,8 +43,8 @@ The management-console is disabled.
 
 ## transactions
 
-The `node-identifier` is set to the value of the `jboss.node.name` system property. The value of  
-`jboss.node.name` is automatically computed at server startup.
+The `node-identifier` is set to the value of the `jboss.tx.node.id` system property. The value of  
+`jboss.tx.node.id` is automatically computed at server startup.
 The `recovery-listener` is enabled.
 
 ## undertow
