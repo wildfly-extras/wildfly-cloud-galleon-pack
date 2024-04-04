@@ -38,12 +38,12 @@
                     <execution>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <tasks>
+                            <target>
                                 <exec executable="./install-cekit-modules.sh" failonerror="true">
                                     <env key="WILDFLY_CEKIT_TAG" value="${wildfly.cekit.modules.tag}"/>
                                     <env key="WILDFLY_CEKIT_FORK" value="${wildfly.cekit.modules.fork}"/>
                                 </exec>
-                            </tasks>
+                            </target>
                         </configuration>
                         <goals>
                             <goal>run</goal>
