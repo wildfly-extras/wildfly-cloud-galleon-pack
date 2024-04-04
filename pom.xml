@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>37</version>
+        <version>44</version>
     </parent>
     <groupId>org.wildfly.cloud</groupId>
     <artifactId>wildfly-cloud-galleon-pack-parent</artifactId>
@@ -44,10 +44,10 @@
         <version.junit>4.13.2</version.junit>
         <wildfly.cekit.modules.fork>wildfly</wildfly.cekit.modules.fork>
         <wildfly.cekit.modules.tag>main</wildfly.cekit.modules.tag>
-        <version.org.wildfly>31.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.core>23.0.0.Final</version.org.wildfly.core>
-        <version.org.wildfly.galleon-plugins>6.4.3.Final</version.org.wildfly.galleon-plugins>
-        <version.org.wildfly.maven.plugin>4.2.0.Final</version.org.wildfly.maven.plugin>
+        <version.org.wildfly>31.0.1.Final</version.org.wildfly>
+        <version.org.wildfly.core>24.0.0.Beta3</version.org.wildfly.core>
+        <version.org.wildfly.galleon-plugins>7.0.0.Beta7</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.maven.plugin>5.0.0.Beta4</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
