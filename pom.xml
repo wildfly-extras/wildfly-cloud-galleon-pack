@@ -46,12 +46,18 @@
         <wildfly.cekit.modules.tag>main</wildfly.cekit.modules.tag>
         <version.org.wildfly>32.0.0.Beta1</version.org.wildfly>
         <version.org.wildfly.core>24.0.0.Beta3</version.org.wildfly.core>
-        <version.org.wildfly.galleon-plugins>7.0.0.Beta7</version.org.wildfly.galleon-plugins>
-        <version.org.wildfly.maven.plugin>5.0.0.Beta4</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.galleon-plugins>7.0.0.Beta8</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.maven.plugin>5.0.0.Beta5</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- to workaround  https://issues.redhat.com/browse/WFGP-280 with WildFly 32 Beta1 -->
+            <dependency>
+                <groupId>org.wildfly.galleon-plugins</groupId>
+                <artifactId>wildfly-galleon-plugins</artifactId>
+                <version>${version.org.wildfly.galleon-plugins}</version>
+            </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>wildfly-cloud-galleon-pack-common</artifactId>

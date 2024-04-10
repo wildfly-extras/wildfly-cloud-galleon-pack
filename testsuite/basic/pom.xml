@@ -73,9 +73,9 @@
                     <layers>
                         <layer>cloud-default-config</layer>
                     </layers>
-                    <provisioning-options>
+                    <galleon-options>
                         <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
-                    </provisioning-options>
+                    </galleon-options>
                 </configuration>
                 <executions>
                     <execution>
@@ -97,6 +97,37 @@
                                     <version>${project.version}</version>
                                 </feature-pack>
                             </feature-packs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>provision-server-with-krazo</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <recordProvisioningState>true</recordProvisioningState>
+                            <feature-packs>
+                                <feature-pack>
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-galleon-pack</artifactId>
+                                    <version>${version.org.wildfly}</version>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>wildfly-cloud-galleon-pack</artifactId>
+                                    <version>${project.version}</version>
+                                </feature-pack>
+                            </feature-packs>
+                            <provisioning-dir>server-with-krazo</provisioning-dir>
+                            <layers>
+                                <layer>cloud-default-config</layer>
+                                <layer>mvc-krazo</layer>
+                            </layers>
+                            <galleon-options>
+                                <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
+                                <stability-level>preview</stability-level>
+                            </galleon-options>
                         </configuration>
                     </execution>
                     <execution>

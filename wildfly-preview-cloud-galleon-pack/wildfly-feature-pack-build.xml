@@ -29,4 +29,8 @@
             <default-configs inherit="false"/>
         </dependency>
     </dependencies>
+    <!-- to workaround  https://issues.redhat.com/browse/WFGP-280 with WildFly 32 Beta1 -->
+    <plugins>
+        <plugin artifact="org.wildfly.galleon-plugins:wildfly-galleon-plugins"/>
+    </plugins>
 </build>

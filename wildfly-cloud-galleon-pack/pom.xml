@@ -30,6 +30,11 @@
     <description>WildFly Galleon feature-pack for Cloud.</description>
     
     <dependencies>
+        <dependency>
+            <groupId>org.wildfly.galleon-plugins</groupId>
+            <artifactId>wildfly-galleon-plugins</artifactId>
+            <scope>provided</scope>
+        </dependency>
          <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>wildfly-cloud-galleon-pack-common</artifactId>
