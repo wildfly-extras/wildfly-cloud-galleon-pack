@@ -99,9 +99,14 @@ jobs:
           done
           . ~/cekit/bin/activate
           pushd custom-cloud-image/wildfly-builder-image
-            cekit test --image=wildfly/wildfly-s2i:dev-${{ env.CLOUD_FP_VERSION }} behave
+            cekit test --image=wildfly/wildfly-s2i:dev-${{ env.CLOUD_FP_VERSION }} behave > cekit-tests-logs.txt 2>&1
           popd
         working-directory: wildfly-cloud
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cekit-logs
+          path: '**/cekit-tests-logs.txt'
       - name: List containers
         if: failure()
         run: |
