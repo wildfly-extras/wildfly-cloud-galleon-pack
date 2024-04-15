@@ -46,8 +46,8 @@
         <wildfly.cekit.modules.tag>main</wildfly.cekit.modules.tag>
         <version.org.wildfly>32.0.0.Beta1</version.org.wildfly>
         <version.org.wildfly.core>24.0.0.Beta3</version.org.wildfly.core>
-        <version.org.wildfly.galleon-plugins>7.0.0.Beta8</version.org.wildfly.galleon-plugins>
-        <version.org.wildfly.maven.plugin>5.0.0.Beta5</version.org.wildfly.maven.plugin>
+        <version.org.wildfly.galleon-plugins>7.0.0.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.maven.plugin>5.0.0.Final</version.org.wildfly.maven.plugin>
     </properties>
 
     <dependencyManagement>
@@ -115,6 +115,27 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-java</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>11</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <!-- In order to resolve from nexus when not yet synchronized with central -->
@@ -128,8 +149,8 @@
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
             </snapshots>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
+            <id>jboss-public-repository</id>
+            <name>JBoss Public Repository</name>
             <url>https://repository.jboss.org/nexus/content/groups/public/</url>
             <layout>default</layout>
         </repository>
