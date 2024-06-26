@@ -98,15 +98,44 @@ jobs:
             sed -i "s|$legacyPlaceHolder|$legacyReplacement|" "$feature"
           done
           . ~/cekit/bin/activate
-          pushd custom-cloud-image/wildfly-builder-image
-            cekit test --image=wildfly/wildfly-s2i:dev-${{ env.CLOUD_FP_VERSION }} behave > cekit-tests-logs.txt 2>&1
+          pushd custom-cloud-image/
+          mkdir -p all-tests
+          mv wildfly-builder-image/tests/features/*.feature all-tests
+          for feature in all-tests/*.feature; do
+            cp $feature wildfly-builder-image/tests/features/
+            pushd wildfly-builder-image
+              fileName=$(basename ${feature})
+              echo "Testing feature file $fileName"
+              cekit test --image=wildfly/wildfly-s2i:dev-${{ env.CLOUD_FP_VERSION }} behave > test-logs-$fileName.txt 2>&1
+              rm test-logs-$fileName.txt
+              docker system prune -f
+            popd
+            rm wildfly-builder-image/tests/features/*.feature
+          done
           popd
         working-directory: wildfly-cloud
-      - uses: actions/upload-artifact@v2
+      - name: Advertise Failing Behave Scenarios
+        if: failure()
+        run: |
+          cd custom-cloud-image/wildfly-builder-image
+          logFile=$(find . -type f -iname "test-logs-*.txt")
+          if [ -f "${logFile}" ]; then
+            # Remove tar noise
+            grep -v "tar.go:" ${logFile} > tmpFile && mv tmpFile ${logFile}
+            # Display failing scenario
+            grep -A10000 "Failing scenarios" ${logFile}
+          else
+            echo "No failure in behave tests"
+          fi
+        working-directory: wildfly-cloud
+      - name: Upload Test Reports on Failure
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
-          name: cekit-logs
-          path: '**/cekit-tests-logs.txt'
+          name: wildfly-s2i-test-logs
+          path: |
+           wildfly-cloud/custom-cloud-image/wildfly-builder-image/test-logs-*.txt
+           /tmp/*.wfs2i.log
       - name: List containers
         if: failure()
         run: |
