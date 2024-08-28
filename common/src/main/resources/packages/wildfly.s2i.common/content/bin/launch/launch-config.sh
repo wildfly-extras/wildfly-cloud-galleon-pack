@@ -4,6 +4,11 @@
 
 # Scripts that 
 # wildfly-cekit-modules will look for each of the listed files and run them if they exist.
+if [ -f "${JBOSS_CONTAINER_JAVA_PROXY_MODULE}/proxy-options" ]; then
+  local_proxy_options="${JBOSS_CONTAINER_JAVA_PROXY_MODULE}"/proxy-options
+else
+  local_proxy_options="/opt/run-java/proxy-options"
+fi
 CONFIG_SCRIPT_CANDIDATES=(
   # Must be the first one.
   $JBOSS_HOME/bin/launch/configure_extensions.sh
@@ -23,7 +28,7 @@ CONFIG_SCRIPT_CANDIDATES=(
   $JBOSS_HOME/bin/launch/oidc.sh
   $JBOSS_HOME/bin/launch/ports.sh
   $JBOSS_HOME/bin/launch/resource-adapter.sh
-  /opt/run-java/proxy-options
+  $local_proxy_options
   $JBOSS_HOME/bin/launch/jboss_modules_system_pkgs.sh
   $JBOSS_HOME/bin/launch/statefulset.sh
 )
